@@ -1,4 +1,4 @@
-module github.com/yuin/gopher-lua
+module github.com/dong-yue/gopher-lua
 
 go 1.17
 
