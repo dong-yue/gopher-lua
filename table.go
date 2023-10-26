@@ -281,14 +281,15 @@ func (tb *LTable) RawGet(key LValue) LValue {
 
 // RawGetInt returns an LValue at position `key` without __index metamethod.
 func (tb *LTable) RawGetInt(key int) LValue {
-	if tb.array == nil {
-		return LNil
-	}
-	index := int(key) - 1
-	if index >= len(tb.array) || index < 0 {
-		return LNil
-	}
-	return tb.array[index]
+	return tb.RawGet(LNumber(key))
+	// if tb.array == nil {
+	// 	return LNil
+	// }
+	// index := int(key) - 1
+	// if index >= len(tb.array) || index < 0 {
+	// 	return LNil
+	// }
+	// return tb.array[index]
 }
 
 // RawGet returns an LValue associated with a given key without __index metamethod.
