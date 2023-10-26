@@ -314,13 +314,7 @@ func (tb *LTable) RawGetH(key LValue) LValue {
 
 // RawGetString returns an LValue associated with a given key without __index metamethod.
 func (tb *LTable) RawGetString(key string) LValue {
-	if tb.strdict == nil {
-		return LNil
-	}
-	if v, vok := tb.strdict[string(key)]; vok {
-		return v
-	}
-	return LNil
+	return tb.RawGetH(LString(key))
 }
 
 // ForEach iterates over this table of elements, yielding each in turn to a given function.
